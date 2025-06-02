@@ -24,7 +24,7 @@ A CS:GO gambling platform that allows users to bet their CS:GO items on various 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/csgocafe.git
+   git clone https://github.com/vodenoff/csgocafe.git
    cd csgocafe
    ```
 
