@@ -1,79 +1,102 @@
-Running a custom/latest Node[.js] version on Red Hat's OpenShift PaaS
-====================================================================
-This git repository is a sample Node application along with the
-"orchestration" bits to help you run the latest or a custom version
-of Node on Red Hat's OpenShift PaaS.
+# CSGO Cafe
 
+A CS:GO gambling platform that allows users to bet their CS:GO items on various games. The platform features a modern web interface and real-time game updates.
 
-Selecting a Node version to install/use
----------------------------------------
+## Features
 
-To select the version of Node.js that you want to run, just edit or add
-a version to the .openshift/markers/NODEJS_VERSION file.
+- Real-time CS:GO item betting
+- Live chat system
+- Game history tracking
+- User statistics and leaderboards
+- Steam bot integration for item trading
+- Support system for user assistance
 
-    Example: To install Node.js version 0.12.5, you can run:
-       $ echo 0.12.5 >> .openshift/markers/NODEJS_VERSION
+## Prerequisites
 
-    Or alternatively, edit the ```.openshift/markers/NODEJS_VERSION``` file
-    in your favorite editor aka vi ;^)
+- Node.js (v10.x or higher)
+- npm (v6.x or higher)
+- MongoDB server
+- A dedicated Steam account for the bot
+- Steam API Key
+- Backpack.tf API Key
 
+## Installation
 
-The action_hooks in this application will use that NODEJS_VERSION marker
-file to download and extract that Node version if it is available on
-nodejs.org and will automatically set the paths up to use the node/npm
-binaries from that install directory.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/csgocafe.git
+   cd csgocafe
+   ```
 
-     See: .openshift/action_hooks/ for more details.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-    Note: The last non-blank line in the .openshift/markers/NODEJS_VERSION
-          file.determines the version it will install.
+3. Configure the application:
+   ```bash
+   cp config.template.js config.js
+   cp steambot.config.template.js steambot.config.js
+   ```
+   
+   Edit the config files with your actual API keys, credentials, and settings.
 
+4. Start MongoDB:
+   Ensure MongoDB is running on your system.
 
-Okay, now onto how can you get a custom Node.js version running
-on OpenShift.
+5. Start the application:
+   ```bash
+   node steambot.js
+   ```
 
+## Project Structure
 
-Steps to get a custom Node.js version running on OpenShift
-----------------------------------------------------------
+```
+csgocafe/
+├── chat/                 # Chat system files
+├── css/                  # Stylesheets
+├── img/                  # Images and assets
+├── js/                   # JavaScript files
+├── support/              # Support system
+├── server.js            # Main server file
+├── steambot.js          # Steam bot logic
+└── [other config files]
+```
 
-Create an account at http://openshift.redhat.com/
+## Configuration
 
-Create a namespace, if you haven't already do so
+The application requires two main configuration files:
 
-    rhc domain create <yournamespace>
+1. `config.js` - Server configuration
+2. `steambot.config.js` - Steam bot configuration
 
-Create a nodejs application (you can name it anything via -a)
+See `DOCUMENTATION.md` for detailed configuration options.
 
-    rhc app create -a palinode  -t nodejs-0.10
+## Documentation
 
-Add this `github nodejs-custom-version-openshift` repository
+For detailed documentation, including:
+- Architecture overview
+- API documentation
+- Database schema
+- Security considerations
+- Troubleshooting guide
+- Deployment instructions
 
-    cd palinode
-    git remote add upstream -m master git://github.com/ramr/nodejs-custom-version-openshift.git
-    git pull -s recursive -X theirs upstream master
+Please refer to `DOCUMENTATION.md`.
 
-Optionally, specify the custom version of Node.js you want to run with
-(Default is v0.12.5).
-If you want to more later version of Node (example v0.12.42), you can change
-to that by just writing it to the end of the NODEJS_VERSION file and
-committing that change.
+## License
 
-    echo 0.12.42 >> .openshift/markers/NODEJS_VERSION
-    #
-    # Or alternatively, edit the .openshift/markers/NODEJS_VERSION file
-    # in your favorite editor aka vi ;^)
-    #
-    # Note: 0.12.42 doesn't exist (as yet) and is a fictitious version
-    #       mentioned here solely for demonstrative purposes.
-    #
-    git commit . -m 'use Node version 0.12.42'
+This project is licensed under the terms included in the `LICENSE` file.
 
-Then push the repo to OpenShift
+## Security
 
-    git push
+- Never commit actual API keys to version control
+- Use a dedicated Steam account with strong credentials
+- Implement proper validation for all trade offers
+- Use HTTPS in production
+- Follow security best practices outlined in documentation
 
-That's it, you can now checkout your application at:
+## Support
 
-    http://palinode-$yournamespace.rhcloud.com
-    ( See env @ http://palinode-$yournamespace.rhcloud.com/env )
+For support, please use the built-in support system or create an issue in the repository.
 
