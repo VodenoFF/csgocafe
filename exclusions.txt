@@ -1,0 +1,9 @@
+.git
+node_modules
+steambot.config.js
+config.js
+ssfn*
+.ssfn
+*.ssfn
+.git\
+node_modules\ 

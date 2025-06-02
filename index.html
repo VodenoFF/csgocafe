@@ -1,0 +1,220 @@
+<html lang="en">
+<head>
+<meta content="This is a website where players can bet CSGO skins, the skins are deposited to our bot and entered into a raffle. Once there are enough skins we pick a random winner which will win those skins. The higher the value of the skins you bet, the bigger the chance you have to win! Our bot will send you a trade offer almost immediately after after you win!" name="description">
+<meta content="csgocafe, csgocafecf, csgo, csgo skins,csgo skin jackpot, csgo skins jackpot, win csgo skins, csgo skins giveaway, csgo skin betting, csgo skin gambling, fragmasters, pasha biceps, izaak, isamu, nitro, skiny, darmowe, skrzynki, itemy, csgocafe.cf, fair jackpot, jackpot, casino, ez items, easy money, easy skins, csgo, csgo free skins," name="keywords">
+<meta name="theme-color" content="#ffffff"> <meta property="og:title" content="The Best CSGO Jackpot Gambling Only">
+<meta property="og:site_name" content="CSGOCAFE"> <meta property="og:url" content="index.php">
+<meta property="og:description" content="The best CSGO Jackpot Gambling on CSGOCAFE. Looking for knives and expensive items? Come gamble and win some skins!">
+<meta property="og:image" content="steamlogo.png"> <meta property="og:type" content="website">
+<title>CSGOCAFE.CF</title>
+<style type="text/css" id="core-notify">.notify-corner{position:fixed;margin:20px;z-index:1050;}.notify-corner .notify-wrapper,.notify-corner .notify-container{position:relative;display:block;height:inherit;width:395px;margin:3px;}.notify-wrapper{z-index:1;position:absolute;display:inline-block;height:0;width:0;}.notify-container{display:none;z-index:1;position:absolute;}.notify-hidable{cursor:pointer;}[data-notify-text],[data-notify-html]{position:relative;}.notify-arrow{position:absolute;z-index:2;width:0;height:0;}.roulet{height:135px!important;background:#3a3f42;text-align:left;white-space:nowrap;overflow:hidden;}.weaponline{position:absolute;margin-left:450px;width:10px;height:135px!important;background:#FF3F3F}.weaponbox{width:125px;margin:5px;display:inline-block;-webkit-box-shadow:0px 0px 10px 0px rgba(0,0,0,1);-moz-box-shadow:0px 0px 10px 0px rgba(0,0,0,1);box-shadow:0px 0px 10px 0px rgba(0,0,0,1);}.weaponheader{height:125px;background:#3d3d3d;background:-moz-linear-gradient(top,#3d3d3d 0%,#b3b3b3 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#3d3d3d),color-stop(100%,#b3b3b3));background:-webkit-linear-gradient(top,#3d3d3d 0%,#b3b3b3 100%);background:-o-linear-gradient(top,#3d3d3d 0%,#b3b3b3 100%);background:-ms-linear-gradient(top,#3d3d3d 0%,#b3b3b3 100%);background:linear-gradient(to bottom,#3d3d3d 0%,#b3b3b3 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3d3d3d',endColorstr='#b3b3b3',GradientType=0);}.players-percent{background:none repeat scroll 0 0;overflow:hidden;position:relative;width:100%;}.players-tape{height:100px;position:relative;text-align:center;width:100%;z-index:90;}.players-percent-block{display:inline-block;height:80px;margin:10px 6px;position:relative;width:80px;}.players-percent-block img{height:80px;left:0;position:absolute;top:0;width:80px;}.players-percent-text{background:none repeat scroll 0 0 rgba(33,49,55,0.85);color:#48c8e4;font:700 19px "Pt Sans";height:24px;left:0;position:absolute;top:56px;width:80px;}.players-arrows{cursor:pointer;height:100px;position:absolute;width:16px;z-index:100;}</style>
+<meta name="viewport" content="width=1180">
+<script src="js/libs/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="chat/chat.js"></script>
+<link rel="stylesheet" href="chat/chat.css" type="text/css"/>
+<script type="text/javascript">
+	
+    
+        // ask user for name with popup prompt    
+        var name = "";
+		var ava = "";
+    	
+    	// display name on page
+    	$("#name-area").html("You are: <span>" + name + "</span>");
+    	
+    	// kick off chat
+        var chat =  new Chat();
+    	$(function() {
+    	
+    		 chat.getState(); 
+    		 
+    		 // watch textarea for key presses
+             $("#sendie").keydown(function(event) {  
+             
+                 var key = event.which;  
+           
+                 //all keys including return.  
+                 if (key >= 33) {
+                   
+                     var maxLength = 57;  
+                     var length = this.value.length;  
+                     
+                     // don't allow new content if length is maxed out
+                     if (length >= maxLength) {  
+                         event.preventDefault();  
+                     }  
+                  }  
+    		 																																																});
+    		 // watch textarea for release of key press
+    		 $('#sendie').keyup(function(e) {	
+    		 					 
+    			  if (e.keyCode == 13) { 
+    			  
+                    var text = $(this).val();
+    				var maxLength = $(this).attr("maxlength");  
+                    var length = text.length; 
+                     
+                    // send 
+                    if (length <= maxLength + 1) { 
+                     
+    			        chat.send(text, name, ava);	
+    			        $(this).val("");
+    			        
+                    } else {
+                    
+    					$(this).val(text.substring(0, maxLength));
+    					
+    				}	
+    				
+    				
+    			  }
+             });
+            
+    	});
+    </script>
+<link href="css/style.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="simple-line-icons.css">
+<link href="css/chat.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
+<script src="js/progressbar.js"></script>
+<script src="js/main.js"></script>
+</head>
+<body id="main-page" class="ezpz-currency-ru" onload="setInterval('chat.update()', 1000)">
+<div class="chat" style="height: auto; z-index: 1000;">
+<header>
+<h2 class="title"><a><font color="00FFD1">Chat</font></a></h2>
+<ul class="tools"><li><a class="closech">↑</a> <a class="closechs hidden">↓</a></li></ul>
+</header>
+<div id="page-wrap" class="hjgf hidden">
+<p id="name-area"></p>
+<div id="chat-wrap"><div id="chat-area"><div style='border-bottom: dotted 1px #DCDCDC;display: flex;'></div><div style='border-bottom: dotted 1px #DCDCDC;display: flex;'></div><div style='border-bottom: dotted 1px #DCDCDC;display: flex;'></div><div style='border-bottom: dotted 1px #DCDCDC;display: flex;'></div><div style='border-bottom: dotted 1px #DCDCDC;display: flex;'></div><div style='border-bottom: dotted 1px #DCDCDC;display: flex;'></div><div style='border-bottom: dotted 1px #DCDCDC;display: flex;'></div><div style='border-bottom: dotted 1px #DCDCDC;display: flex;'></div><div style='border-bottom: dotted 1px #DCDCDC;display: flex;'></div><div style='border-bottom: dotted 1px #DCDCDC;display: flex;'>﻿<img src='https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5a/5a72f67fa539f0e063335499a9d17232745d84ad_full.jpg' height='50' width='50'></img><p style='float: right;width: 210px;overflow-wrap: break-word;padding: 3px;padding-left: 13px;'><span>LordaBG</span><br><a style='display: block;margin-top: 5px;'>ela skye ye </a></p>
+</div></div></div>
+<div id="otpsoob"><div style="padding-top: 7px;">
+<a class="ezpz-loginas" style="font-size: 12px;border: 2px solid #db073d;margin: auto;padding-top: 12px;width: 230px;min-height: 27px;height: 27px;" href="/?login">Login through STEAM</a>
+</div></div> </div>
+</div>
+</body>
+<body>
+<div id="wrapper">
+<header id="header">
+<strong class="logo"><i class="dice"></i><a href="/">CSGO<span style="color: #38C4A9;">CAFE</span></a></strong>
+<div class="heder-nav1">
+<ul>
+<li><a href="http://csgocafe.cf/support/index.php"><i class="icon-support text_dec" style="line-height:70px;"></i> Support</a></li>
+</ul>
+<div class="ic-us-online"><i class="icon-users" style="line-height:70px;"></i>
+<div class="us-onll"><a class="online"><script type="text/javascript" src='http://blogutils.net/olct/online.php?site=csgocafe.cf&interval=600'></script></a></div>
+</div>
+<div style="float: right;height: 70px;">
+<div class="div-login-set1"><a class="login-set1" href="#"><i class="icon-social-facebook" style="line-height:35px;"></i></a><a class="login-set2" href="#"><i class="icon-social-twitter" style="line-height:35px;"></i></a>
+<a class="login-set2" href="#"><i class="icon-social-tumblr" style="line-height:35px;"></i></a><a class="btn1" href="?login"><i class="icon-login" style="line-height:35px;"></i></a></div> </div>
+</div>
+</header>
+<div id="main">
+<div class="sidebar">
+<nav id="nav">
+<div class="barbbbb"><i class="icon-grid ic_padd9" style="line-height: 44px;"></i><b>Navigation</b></div>
+<ul>
+<li><a href="/"><i class="icon-game-controller ic_padd"></i>Play</a></li>
+<li><a href="/history.php"><i class="icon-clock ic_padd"></i>Games history</a></li>
+<li><a href="/top.php"><i class="icon-trophy ic_padd"></i>TOP players</a></li>
+<li><a href="/about.php"><i class="icon-question ic_padd"></i>FAQ</a></li>
+<li><a href="/rls.php"><i class="icon-note ic_padd"></i>Terms of Service</a></li>
+</ul>
+</nav>
+<div class="bonus-block">
+<div class="barbbbb"><i class="staras ic_padd9" style="line-height: 44px;"></i><B>BONUS!</b></div>
+<div class="box">
+<p style="padding-top: 10px;"><i class="icon-check ic_padd2"></i> The first person to deposit on a new game gets a <span style="color: #CC9900;"><b>+10%</span></b> more chance of winning.</p>
+<p style="padding-top: 10px;"><center><i class="icon-power ic_padd2"></i><span style="color: #3A3F42;"> Bot status: </span><b><span id="bstatus"> </span></b></center></p>
+<div class="text-box">
+<p><i class="icon-check ic_padd2"></i> Add <B><span style="color: #D53232;">CSGOCAFE.CF</span></B> to your nick and get <span style="color: #CC9900;"><b>+5%</span></b> to rake.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="items">
+<ul>
+<li>
+<div class="text">
+<p>Games today</p>
+<strong>3</strong>
+</div>
+</li>
+<li>
+<div class="text">
+<p>Players today</p>
+<strong>2</strong>
+</div>
+</li>
+<li>
+<div class="text">
+<p>Items today</p>
+<strong>4</strong>
+</div>
+</li>
+<li>
+<div class="text">
+<p>Max win</p>
+<strong>5.21$</strong>
+</div>
+</li>
+</ul>
+</div>
+<div class="jackpot">
+<div class="infohni">Information</div>
+<div><p><i class="icon-question ic_padd3" style="margin:0; color:#FF3F3F;"></i>Involved make skins, upon reaching a predetermined maximum number of randomly selected winner, who will receive all skins.</p></div>
+<div><p><i class="icon-question ic_padd3" style="margin:0; color:#FF3F3F;"></i>First came into the game player, the chance of victory increases by 10%.</p></div>
+<div><p><i class="icon-question ic_padd3" style="margin:0; color:#FF3F3F;"></i>For problems, open the support menu and submit a ticket.</p></div>
+<div><p><i class="icon-question ic_padd3" style="margin:0; color:#FF3F3F;"></i>Tradeoffer must be accepted in 2 min!</a></p></div>
+<div style="text-align: center;"><a class="enter_btn" href="?login" id='money_round2'><i class="ico_enter_btn"></i>Login through STEAM</a> </div>
+</div>
+<div class="last-winner">
+<div class="last-winner1">
+</div>
+</div>
+<div class="game">
+<div class="box">
+<div class="number">
+<p>Game: #<span class="lot_current_game_id"></span></p>
+</div>
+</div>
+<div class="progress">
+<div class="visual" style="float: left;">
+<div id="prograsd" style="position: relative;"><p class="progressbar__label" style="position: absolute; top: 45%; left: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #FF3F3F;font: 500 40px/40px roboto,sans-serif;">0/50</p><span id="money_round" class="bankbbas"><span id="bank">0</span>$</span></div>
+</div>
+<div style="float: right;width: 522px;">
+<div class="amount">
+<span id="end_game1" class="end_game">Time left: <i class="icon-clock"></i> <span id="timeleft">0</span></span>
+<span id="end_game2" class="end_game" style="font: 500 15px/15px roboto,sans-serif;"></span>
+</div>
+<div style="float: none;"><p style="font: 400 14.5px/30px roboto,sans-serif;float: none;text-align: left;"><i class="icon-question ic_padd3" style="margin:0; color:#FF3F3F;"></i>Chance of winning depends on the amount of paid skins.</p></div>
+<div style="float: none;"><p style="font: 400 14.5px/30px roboto,sans-serif;float: none;text-align: left;"><i class="icon-question ic_padd3" style="margin:0; color:#FF3F3F;"></i>Maximum attachment - 10 items per game.</p></div>
+<div style="float: none;"><p style="font: 400 14.5px/30px roboto,sans-serif;float: none;text-align: left;"><i class="icon-question ic_padd3" style="margin:0; color:#FF3F3F;"></i>The minimum rate of 0.01$.</p></div>
+<div class="rate">
+<p style="font: 400 16px/20px roboto,sans-serif;float: left;padding-right: 10px;margin: 0;"><span style="color: #FF3F3F;">*</span> Your chance to win</p>
+<div class="countt">
+<span id="mychance">0%</span>
+</div>
+<div id="first_chance10" style="margin-left: 50px; clear: both; font-size: 15pt; font-weight: bold; color: #f9d300;">&nbsp;</div>
+</div>
+<div id="add_game"><a class="btwn_game" href="?login">Make a deposit!</a></div> </div>
+</div>
+<div class="stuffs promo-cover">
+<ul id="game-sts" style="display: block;">
+<div class=players style="background: rgb(56, 196, 169); text-align: center; ">
+<script>if(bets < 0) { audioElement2.play();} bets = 0;</script> </div>
+<section class="rounditems" style="margin: auto;">
+<script>if(bets < 0) { audioElement2.play();} bets = 0;</script> </section>
+<li class="orange" style="min-height: 80px; width: 100%; text-align: center;">
+<section class="start-game" style="min-height: 80px; padding: 0;">
+<p style="font-size: 18pt;min-height: 60px;vertical-align: middle;padding: 0px;">Don't let your dreams be dreams, JUST DO IT!</p>
+</section>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
